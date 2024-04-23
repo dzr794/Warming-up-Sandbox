@@ -73,9 +73,10 @@ describe('Testing validations', () => {
       time: '1:15:30'
     }
 
-    const future = validateInputs(futureInputs);
+    const result = validateInputs(futureInputs);
 
-    expect(future.areValid).toBeFalsy();
+    expect(result.areValid).toBeFalsy();
+    console.log(result.error);
   });
 
   test('should be invalid date (date)', () => { 
@@ -90,6 +91,7 @@ describe('Testing validations', () => {
     const result = validateInputs(mockInputs);
 
     expect(result.areValid).toBeFalsy();
+    console.log(result.error);
   });
 
   test('should be valid Date and time', () => { 
@@ -104,6 +106,36 @@ describe('Testing validations', () => {
     const result = validateInputs(mockInputs);
 
     expect(result.areValid).toBeTruthy();
+  });
+
+  test('should be invalid Latitude', () => { 
+    
+    const mockInputs:LocationAndDateTime = {
+      latitude: 103.359889,
+      longitude: 6.638565,
+      date: '2024-06-24',
+      time: '10:10:30'
+    }
+
+    const result = validateInputs(mockInputs);
+
+    expect(result.areValid).toBeFalsy();
+    console.log(result.error);
+  });
+
+  test('should be invalid Longitude', () => { 
+    
+    const mockInputs:LocationAndDateTime = {
+      latitude: 13.359889,
+      longitude: 206.638565,
+      date: '2024-06-24',
+      time: '10:10:30'
+    }
+
+    const result = validateInputs(mockInputs);
+
+    expect(result.areValid).toBeFalsy();
+    console.log(result.error);
   });
 })
 
