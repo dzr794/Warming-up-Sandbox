@@ -20,15 +20,18 @@
 
     /* Type Checking */
     "strict": false,                                      /* Enable all strict type-checking options. */
+    "allowSyntheticDefaultImports": true,
 
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
 
   "include": [
-    "src/**/*.ts"
+    "src/predictFutureWeather.ts"
   ],
   "exclude": [
     "node_modules"
   ]
 }
+
+
