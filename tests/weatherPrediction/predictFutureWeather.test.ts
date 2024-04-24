@@ -1,8 +1,8 @@
-import { validateInputs, detectEnpoint, PrintForecast } from '../src/weatherPrediction/utils/utils';
+import { validateInputs, detectEnpoint, PrintForecast } from '../../src/weatherPrediction/utils/utils';
 
-import { LocationAndDateTime } from "../src/weatherPrediction/types/forecastTypes";
+import { LocationAndDateTime } from "../../src/weatherPrediction/types/forecastTypes";
 
-import { predictFutureWeather } from "../src/weatherPrediction/predictFutureWeather";
+import { predictFutureWeather } from "../../src/weatherPrediction/predictFutureWeather";
 
 describe('Testing days prediction switch', ()=>{
 
