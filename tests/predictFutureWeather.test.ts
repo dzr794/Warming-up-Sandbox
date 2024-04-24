@@ -142,7 +142,6 @@ describe('Testing predictFutureWeather', ()=>{
     
     
     //Assert
-    //? more info in: https://jestjs.io/docs/expect
     expect( forecastResult ).toEqual( expect.objectContaining({
       temperature: expect.any(Number),
       humidity: expect.any(Number),
@@ -170,7 +169,6 @@ describe('Testing predictFutureWeather', ()=>{
     
     
     //Assert
-    //? more info in: https://jestjs.io/docs/expect
     expect( forecastResult ).toEqual( expect.objectContaining({
       temperature: expect.any(Number),
       humidity: expect.any(Number),
@@ -198,7 +196,6 @@ describe('Testing predictFutureWeather', ()=>{
     
     
     //Assert
-    //? more info in: https://jestjs.io/docs/expect
     expect( forecastResult ).toEqual( expect.objectContaining({
       temperature: expect.any(Number),
       humidity: expect.any(Number),
