@@ -27,7 +27,7 @@
   },
 
   "include": [
-    "src/predictFutureWeather.ts"
+    "src/weatherPrediction/predictFutureWeather.ts"
   ],
   "exclude": [
     "node_modules"

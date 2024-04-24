@@ -3,7 +3,7 @@ import { Forecast } from './futureForecastInterface';
 export type UnixTimestamp = number;
 export type Celsius = number;
 export type Percentage = number;
-export type MetersPerSeconds = number;
+export type MetersPerSeconds = number|string;
 export type Millimeters = number;
 
 export type LocationAndDateTime = {

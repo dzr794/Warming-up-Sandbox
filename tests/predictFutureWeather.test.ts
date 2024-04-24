@@ -1,22 +1,8 @@
-import { 
-          Celsius,
-          ForecastInput,
-          LocationAndDateTime,
-          MetersPerSeconds,
-          Millimeters,
-          Percentage,
-          UnixTimestamp,
-          WeatherAPIVars,
-          WeatherForecast 
-        } from "../src/types/forecastTypes";
+import { validateInputs, detectEnpoint, PrintForecast } from '../src/weatherPrediction/utils/utils';
 
-import { predictFutureWeather, 
-  getFutureWeatherForecast, 
-  getHistoricalWeatherForecast, 
-  getPresentWeatherForecast, 
-  validateInputs, 
-  getEndpoint, 
-  PrintForecast} from "../src/predictFutureWeather";
+import { LocationAndDateTime } from "../src/weatherPrediction/types/forecastTypes";
+
+import { predictFutureWeather } from "../src/weatherPrediction/predictFutureWeather";
 
 describe('Testing days prediction switch', ()=>{
 
@@ -28,7 +14,7 @@ describe('Testing days prediction switch', ()=>{
       time: '16:15:30'
     }
     const past = validateInputs(historicInputs);
-    const endpoint = getEndpoint( past.unixTimestamp );
+    const endpoint = detectEnpoint( past.unixTimestamp );
 
     expect(endpoint).toBe('past');
   });
@@ -42,7 +28,7 @@ describe('Testing days prediction switch', ()=>{
     }
 
     const present = validateInputs(presentInputs);
-    const endpoint = getEndpoint( present.unixTimestamp );
+    const endpoint = detectEnpoint( present.unixTimestamp );
 
     expect(endpoint).toBe('present');
   });
@@ -56,7 +42,7 @@ describe('Testing days prediction switch', ()=>{
     }
     
     const future = validateInputs(futureInputs);
-    const endpoint = getEndpoint( future.unixTimestamp );
+    const endpoint = detectEnpoint( future.unixTimestamp );
 
     expect(endpoint).toBe('future');
   });
@@ -145,14 +131,14 @@ describe('Testing predictFutureWeather', ()=>{
     
     //Arrange
     const presentInputs:LocationAndDateTime = {
-      latitude: 3.359889,
-      longitude: -76.638565,
+      latitude: -34.920345,
+      longitude: -57.969559,
       date: '2024-04-30',
       time: '15:00:30'
     }
     
     //Act
-    const forecastResult = await predictFutureWeather(presentInputs);
+    const forecastResult:any = await predictFutureWeather(presentInputs);
     
     
     //Assert
@@ -173,14 +159,14 @@ describe('Testing predictFutureWeather', ()=>{
     
     //Arrange
     const pastInputs:LocationAndDateTime = {
-      latitude: 3.359889,
-      longitude: -76.638565,
+      latitude: 37.733795,
+      longitude: -122.446747,
       date: '2024-03-01',
       time: '08:10:10'
     }
     
     //Act
-    const forecastResult = await predictFutureWeather(pastInputs);
+    const forecastResult:any = await predictFutureWeather(pastInputs);
     
     
     //Assert
@@ -201,14 +187,14 @@ describe('Testing predictFutureWeather', ()=>{
     
     //Arrange
     const futureInputs:LocationAndDateTime = {
-      latitude: 3.359889,
-      longitude: -76.638565,
+      latitude: 35.652832,
+      longitude: 139.839478,
       date: '2024-06-01',
-      time: '08:10:10'
+      time: '12:30:10'
     }
     
     //Act
-    const forecastResult = await predictFutureWeather(futureInputs);
+    const forecastResult:any = await predictFutureWeather(futureInputs);
     
     
     //Assert
